@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.upinmcSE.grpc.gen";
+option java_outer_classname = "AuthProto";
+
+
+service AuthGrpcService {
+  rpc Ping (PingRequest) returns (PingResponse);
+}
+
+message PingRequest {
+  string name = 1;
+}
+
+message PingResponse {
+  string response = 1;
+}
