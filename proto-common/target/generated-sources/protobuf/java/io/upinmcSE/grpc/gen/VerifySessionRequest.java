@@ -6,13 +6,13 @@
 package io.upinmcSE.grpc.gen;
 
 /**
- * Protobuf type {@code PingResponse}
+ * Protobuf type {@code VerifySessionRequest}
  */
 @com.google.protobuf.Generated
-public final class PingResponse extends
+public final class VerifySessionRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:PingResponse)
-    PingResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:VerifySessionRequest)
+    VerifySessionRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -21,62 +21,62 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 33,
       /* patch= */ 0,
       /* suffix= */ "",
-      "PingResponse");
+      "VerifySessionRequest");
   }
-  // Use PingResponse.newBuilder() to construct.
-  private PingResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use VerifySessionRequest.newBuilder() to construct.
+  private VerifySessionRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private PingResponse() {
-    response_ = "";
+  private VerifySessionRequest() {
+    token_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.upinmcSE.grpc.gen.AuthProto.internal_static_PingResponse_descriptor;
+    return io.upinmcSE.grpc.gen.AuthProto.internal_static_VerifySessionRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.upinmcSE.grpc.gen.AuthProto.internal_static_PingResponse_fieldAccessorTable
+    return io.upinmcSE.grpc.gen.AuthProto.internal_static_VerifySessionRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.upinmcSE.grpc.gen.PingResponse.class, io.upinmcSE.grpc.gen.PingResponse.Builder.class);
+            io.upinmcSE.grpc.gen.VerifySessionRequest.class, io.upinmcSE.grpc.gen.VerifySessionRequest.Builder.class);
   }
 
-  public static final int RESPONSE_FIELD_NUMBER = 1;
+  public static final int TOKEN_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object response_ = "";
+  private volatile java.lang.Object token_ = "";
   /**
-   * <code>string response = 1;</code>
-   * @return The response.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
   @java.lang.Override
-  public java.lang.String getResponse() {
-    java.lang.Object ref = response_;
+  public java.lang.String getToken() {
+    java.lang.Object ref = token_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      response_ = s;
+      token_ = s;
       return s;
     }
   }
   /**
-   * <code>string response = 1;</code>
-   * @return The bytes for response.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getResponseBytes() {
-    java.lang.Object ref = response_;
+      getTokenBytes() {
+    java.lang.Object ref = token_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      response_ = b;
+      token_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -97,8 +97,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(response_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, response_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, token_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -109,8 +109,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(response_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, response_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, token_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -122,13 +122,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.upinmcSE.grpc.gen.PingResponse)) {
+    if (!(obj instanceof io.upinmcSE.grpc.gen.VerifySessionRequest)) {
       return super.equals(obj);
     }
-    io.upinmcSE.grpc.gen.PingResponse other = (io.upinmcSE.grpc.gen.PingResponse) obj;
+    io.upinmcSE.grpc.gen.VerifySessionRequest other = (io.upinmcSE.grpc.gen.VerifySessionRequest) obj;
 
-    if (!getResponse()
-        .equals(other.getResponse())) return false;
+    if (!getToken()
+        .equals(other.getToken())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -140,51 +140,51 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
-    hash = (53 * hash) + getResponse().hashCode();
+    hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getToken().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(byte[] data)
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(java.io.InputStream input)
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -192,26 +192,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static io.upinmcSE.grpc.gen.PingResponse parseDelimitedFrom(java.io.InputStream input)
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static io.upinmcSE.grpc.gen.PingResponse parseDelimitedFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static io.upinmcSE.grpc.gen.PingResponse parseFrom(
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -224,7 +224,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.upinmcSE.grpc.gen.PingResponse prototype) {
+  public static Builder newBuilder(io.upinmcSE.grpc.gen.VerifySessionRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -240,26 +240,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code PingResponse}
+   * Protobuf type {@code VerifySessionRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:PingResponse)
-      io.upinmcSE.grpc.gen.PingResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:VerifySessionRequest)
+      io.upinmcSE.grpc.gen.VerifySessionRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.upinmcSE.grpc.gen.AuthProto.internal_static_PingResponse_descriptor;
+      return io.upinmcSE.grpc.gen.AuthProto.internal_static_VerifySessionRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.upinmcSE.grpc.gen.AuthProto.internal_static_PingResponse_fieldAccessorTable
+      return io.upinmcSE.grpc.gen.AuthProto.internal_static_VerifySessionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.upinmcSE.grpc.gen.PingResponse.class, io.upinmcSE.grpc.gen.PingResponse.Builder.class);
+              io.upinmcSE.grpc.gen.VerifySessionRequest.class, io.upinmcSE.grpc.gen.VerifySessionRequest.Builder.class);
     }
 
-    // Construct using io.upinmcSE.grpc.gen.PingResponse.newBuilder()
+    // Construct using io.upinmcSE.grpc.gen.VerifySessionRequest.newBuilder()
     private Builder() {
 
     }
@@ -273,24 +273,24 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      response_ = "";
+      token_ = "";
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.upinmcSE.grpc.gen.AuthProto.internal_static_PingResponse_descriptor;
+      return io.upinmcSE.grpc.gen.AuthProto.internal_static_VerifySessionRequest_descriptor;
     }
 
     @java.lang.Override
-    public io.upinmcSE.grpc.gen.PingResponse getDefaultInstanceForType() {
-      return io.upinmcSE.grpc.gen.PingResponse.getDefaultInstance();
+    public io.upinmcSE.grpc.gen.VerifySessionRequest getDefaultInstanceForType() {
+      return io.upinmcSE.grpc.gen.VerifySessionRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.upinmcSE.grpc.gen.PingResponse build() {
-      io.upinmcSE.grpc.gen.PingResponse result = buildPartial();
+    public io.upinmcSE.grpc.gen.VerifySessionRequest build() {
+      io.upinmcSE.grpc.gen.VerifySessionRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -298,34 +298,34 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.upinmcSE.grpc.gen.PingResponse buildPartial() {
-      io.upinmcSE.grpc.gen.PingResponse result = new io.upinmcSE.grpc.gen.PingResponse(this);
+    public io.upinmcSE.grpc.gen.VerifySessionRequest buildPartial() {
+      io.upinmcSE.grpc.gen.VerifySessionRequest result = new io.upinmcSE.grpc.gen.VerifySessionRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(io.upinmcSE.grpc.gen.PingResponse result) {
+    private void buildPartial0(io.upinmcSE.grpc.gen.VerifySessionRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.response_ = response_;
+        result.token_ = token_;
       }
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.upinmcSE.grpc.gen.PingResponse) {
-        return mergeFrom((io.upinmcSE.grpc.gen.PingResponse)other);
+      if (other instanceof io.upinmcSE.grpc.gen.VerifySessionRequest) {
+        return mergeFrom((io.upinmcSE.grpc.gen.VerifySessionRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.upinmcSE.grpc.gen.PingResponse other) {
-      if (other == io.upinmcSE.grpc.gen.PingResponse.getDefaultInstance()) return this;
-      if (!other.getResponse().isEmpty()) {
-        response_ = other.response_;
+    public Builder mergeFrom(io.upinmcSE.grpc.gen.VerifySessionRequest other) {
+      if (other == io.upinmcSE.grpc.gen.VerifySessionRequest.getDefaultInstance()) return this;
+      if (!other.getToken().isEmpty()) {
+        token_ = other.token_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -356,7 +356,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              response_ = input.readStringRequireUtf8();
+              token_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -377,95 +377,95 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object response_ = "";
+    private java.lang.Object token_ = "";
     /**
-     * <code>string response = 1;</code>
-     * @return The response.
+     * <code>string token = 1;</code>
+     * @return The token.
      */
-    public java.lang.String getResponse() {
-      java.lang.Object ref = response_;
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        response_ = s;
+        token_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string response = 1;</code>
-     * @return The bytes for response.
+     * <code>string token = 1;</code>
+     * @return The bytes for token.
      */
     public com.google.protobuf.ByteString
-        getResponseBytes() {
-      java.lang.Object ref = response_;
+        getTokenBytes() {
+      java.lang.Object ref = token_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        response_ = b;
+        token_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string response = 1;</code>
-     * @param value The response to set.
+     * <code>string token = 1;</code>
+     * @param value The token to set.
      * @return This builder for chaining.
      */
-    public Builder setResponse(
+    public Builder setToken(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      response_ = value;
+      token_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>string response = 1;</code>
+     * <code>string token = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearResponse() {
-      response_ = getDefaultInstance().getResponse();
+    public Builder clearToken() {
+      token_ = getDefaultInstance().getToken();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string response = 1;</code>
-     * @param value The bytes for response to set.
+     * <code>string token = 1;</code>
+     * @param value The bytes for token to set.
      * @return This builder for chaining.
      */
-    public Builder setResponseBytes(
+    public Builder setTokenBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      response_ = value;
+      token_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PingResponse)
+    // @@protoc_insertion_point(builder_scope:VerifySessionRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:PingResponse)
-  private static final io.upinmcSE.grpc.gen.PingResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:VerifySessionRequest)
+  private static final io.upinmcSE.grpc.gen.VerifySessionRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.upinmcSE.grpc.gen.PingResponse();
+    DEFAULT_INSTANCE = new io.upinmcSE.grpc.gen.VerifySessionRequest();
   }
 
-  public static io.upinmcSE.grpc.gen.PingResponse getDefaultInstance() {
+  public static io.upinmcSE.grpc.gen.VerifySessionRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<PingResponse>
-      PARSER = new com.google.protobuf.AbstractParser<PingResponse>() {
+  private static final com.google.protobuf.Parser<VerifySessionRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VerifySessionRequest>() {
     @java.lang.Override
-    public PingResponse parsePartialFrom(
+    public VerifySessionRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -484,17 +484,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<PingResponse> parser() {
+  public static com.google.protobuf.Parser<VerifySessionRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<PingResponse> getParserForType() {
+  public com.google.protobuf.Parser<VerifySessionRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.upinmcSE.grpc.gen.PingResponse getDefaultInstanceForType() {
+  public io.upinmcSE.grpc.gen.VerifySessionRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

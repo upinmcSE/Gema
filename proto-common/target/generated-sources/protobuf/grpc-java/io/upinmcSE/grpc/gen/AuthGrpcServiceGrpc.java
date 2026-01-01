@@ -12,35 +12,97 @@ public final class AuthGrpcServiceGrpc {
   public static final java.lang.String SERVICE_NAME = "AuthGrpcService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.PingRequest,
-      io.upinmcSE.grpc.gen.PingResponse> getPingMethod;
+  private static volatile io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateAccountRequest,
+      io.upinmcSE.grpc.gen.CreateAccountResponse> getCreateAccountMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Ping",
-      requestType = io.upinmcSE.grpc.gen.PingRequest.class,
-      responseType = io.upinmcSE.grpc.gen.PingResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "CreateAccount",
+      requestType = io.upinmcSE.grpc.gen.CreateAccountRequest.class,
+      responseType = io.upinmcSE.grpc.gen.CreateAccountResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.PingRequest,
-      io.upinmcSE.grpc.gen.PingResponse> getPingMethod() {
-    io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.PingRequest, io.upinmcSE.grpc.gen.PingResponse> getPingMethod;
-    if ((getPingMethod = AuthGrpcServiceGrpc.getPingMethod) == null) {
+  public static io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateAccountRequest,
+      io.upinmcSE.grpc.gen.CreateAccountResponse> getCreateAccountMethod() {
+    io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateAccountRequest, io.upinmcSE.grpc.gen.CreateAccountResponse> getCreateAccountMethod;
+    if ((getCreateAccountMethod = AuthGrpcServiceGrpc.getCreateAccountMethod) == null) {
       synchronized (AuthGrpcServiceGrpc.class) {
-        if ((getPingMethod = AuthGrpcServiceGrpc.getPingMethod) == null) {
-          AuthGrpcServiceGrpc.getPingMethod = getPingMethod =
-              io.grpc.MethodDescriptor.<io.upinmcSE.grpc.gen.PingRequest, io.upinmcSE.grpc.gen.PingResponse>newBuilder()
+        if ((getCreateAccountMethod = AuthGrpcServiceGrpc.getCreateAccountMethod) == null) {
+          AuthGrpcServiceGrpc.getCreateAccountMethod = getCreateAccountMethod =
+              io.grpc.MethodDescriptor.<io.upinmcSE.grpc.gen.CreateAccountRequest, io.upinmcSE.grpc.gen.CreateAccountResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateAccount"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.upinmcSE.grpc.gen.PingRequest.getDefaultInstance()))
+                  io.upinmcSE.grpc.gen.CreateAccountRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.upinmcSE.grpc.gen.PingResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new AuthGrpcServiceMethodDescriptorSupplier("Ping"))
+                  io.upinmcSE.grpc.gen.CreateAccountResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthGrpcServiceMethodDescriptorSupplier("CreateAccount"))
               .build();
         }
       }
     }
-    return getPingMethod;
+    return getCreateAccountMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateSessionRequest,
+      io.upinmcSE.grpc.gen.CreateSessionResponse> getCreateSessionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateSession",
+      requestType = io.upinmcSE.grpc.gen.CreateSessionRequest.class,
+      responseType = io.upinmcSE.grpc.gen.CreateSessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateSessionRequest,
+      io.upinmcSE.grpc.gen.CreateSessionResponse> getCreateSessionMethod() {
+    io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.CreateSessionRequest, io.upinmcSE.grpc.gen.CreateSessionResponse> getCreateSessionMethod;
+    if ((getCreateSessionMethod = AuthGrpcServiceGrpc.getCreateSessionMethod) == null) {
+      synchronized (AuthGrpcServiceGrpc.class) {
+        if ((getCreateSessionMethod = AuthGrpcServiceGrpc.getCreateSessionMethod) == null) {
+          AuthGrpcServiceGrpc.getCreateSessionMethod = getCreateSessionMethod =
+              io.grpc.MethodDescriptor.<io.upinmcSE.grpc.gen.CreateSessionRequest, io.upinmcSE.grpc.gen.CreateSessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateSession"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.upinmcSE.grpc.gen.CreateSessionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.upinmcSE.grpc.gen.CreateSessionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthGrpcServiceMethodDescriptorSupplier("CreateSession"))
+              .build();
+        }
+      }
+    }
+    return getCreateSessionMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.VerifySessionRequest,
+      io.upinmcSE.grpc.gen.VerifySessionResponse> getVerifySessionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "VerifySession",
+      requestType = io.upinmcSE.grpc.gen.VerifySessionRequest.class,
+      responseType = io.upinmcSE.grpc.gen.VerifySessionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.VerifySessionRequest,
+      io.upinmcSE.grpc.gen.VerifySessionResponse> getVerifySessionMethod() {
+    io.grpc.MethodDescriptor<io.upinmcSE.grpc.gen.VerifySessionRequest, io.upinmcSE.grpc.gen.VerifySessionResponse> getVerifySessionMethod;
+    if ((getVerifySessionMethod = AuthGrpcServiceGrpc.getVerifySessionMethod) == null) {
+      synchronized (AuthGrpcServiceGrpc.class) {
+        if ((getVerifySessionMethod = AuthGrpcServiceGrpc.getVerifySessionMethod) == null) {
+          AuthGrpcServiceGrpc.getVerifySessionMethod = getVerifySessionMethod =
+              io.grpc.MethodDescriptor.<io.upinmcSE.grpc.gen.VerifySessionRequest, io.upinmcSE.grpc.gen.VerifySessionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "VerifySession"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.upinmcSE.grpc.gen.VerifySessionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.upinmcSE.grpc.gen.VerifySessionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AuthGrpcServiceMethodDescriptorSupplier("VerifySession"))
+              .build();
+        }
+      }
+    }
+    return getVerifySessionMethod;
   }
 
   /**
@@ -108,9 +170,23 @@ public final class AuthGrpcServiceGrpc {
 
     /**
      */
-    default void ping(io.upinmcSE.grpc.gen.PingRequest request,
-        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.PingResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
+    default void createAccount(io.upinmcSE.grpc.gen.CreateAccountRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateAccountResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateAccountMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void createSession(io.upinmcSE.grpc.gen.CreateSessionRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateSessionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateSessionMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void verifySession(io.upinmcSE.grpc.gen.VerifySessionRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.VerifySessionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getVerifySessionMethod(), responseObserver);
     }
   }
 
@@ -143,10 +219,26 @@ public final class AuthGrpcServiceGrpc {
 
     /**
      */
-    public void ping(io.upinmcSE.grpc.gen.PingRequest request,
-        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.PingResponse> responseObserver) {
+    public void createAccount(io.upinmcSE.grpc.gen.CreateAccountRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateAccountResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getCreateAccountMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void createSession(io.upinmcSE.grpc.gen.CreateSessionRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateSessionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateSessionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void verifySession(io.upinmcSE.grpc.gen.VerifySessionRequest request,
+        io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.VerifySessionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getVerifySessionMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -168,9 +260,23 @@ public final class AuthGrpcServiceGrpc {
 
     /**
      */
-    public io.upinmcSE.grpc.gen.PingResponse ping(io.upinmcSE.grpc.gen.PingRequest request) throws io.grpc.StatusException {
+    public io.upinmcSE.grpc.gen.CreateAccountResponse createAccount(io.upinmcSE.grpc.gen.CreateAccountRequest request) throws io.grpc.StatusException {
       return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
-          getChannel(), getPingMethod(), getCallOptions(), request);
+          getChannel(), getCreateAccountMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.upinmcSE.grpc.gen.CreateSessionResponse createSession(io.upinmcSE.grpc.gen.CreateSessionRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getCreateSessionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.upinmcSE.grpc.gen.VerifySessionResponse verifySession(io.upinmcSE.grpc.gen.VerifySessionRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getVerifySessionMethod(), getCallOptions(), request);
     }
   }
 
@@ -192,9 +298,23 @@ public final class AuthGrpcServiceGrpc {
 
     /**
      */
-    public io.upinmcSE.grpc.gen.PingResponse ping(io.upinmcSE.grpc.gen.PingRequest request) {
+    public io.upinmcSE.grpc.gen.CreateAccountResponse createAccount(io.upinmcSE.grpc.gen.CreateAccountRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getPingMethod(), getCallOptions(), request);
+          getChannel(), getCreateAccountMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.upinmcSE.grpc.gen.CreateSessionResponse createSession(io.upinmcSE.grpc.gen.CreateSessionRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateSessionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.upinmcSE.grpc.gen.VerifySessionResponse verifySession(io.upinmcSE.grpc.gen.VerifySessionRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getVerifySessionMethod(), getCallOptions(), request);
     }
   }
 
@@ -216,14 +336,32 @@ public final class AuthGrpcServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.upinmcSE.grpc.gen.PingResponse> ping(
-        io.upinmcSE.grpc.gen.PingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.upinmcSE.grpc.gen.CreateAccountResponse> createAccount(
+        io.upinmcSE.grpc.gen.CreateAccountRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getPingMethod(), getCallOptions()), request);
+          getChannel().newCall(getCreateAccountMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.upinmcSE.grpc.gen.CreateSessionResponse> createSession(
+        io.upinmcSE.grpc.gen.CreateSessionRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateSessionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.upinmcSE.grpc.gen.VerifySessionResponse> verifySession(
+        io.upinmcSE.grpc.gen.VerifySessionRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getVerifySessionMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_PING = 0;
+  private static final int METHODID_CREATE_ACCOUNT = 0;
+  private static final int METHODID_CREATE_SESSION = 1;
+  private static final int METHODID_VERIFY_SESSION = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -242,9 +380,17 @@ public final class AuthGrpcServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_PING:
-          serviceImpl.ping((io.upinmcSE.grpc.gen.PingRequest) request,
-              (io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.PingResponse>) responseObserver);
+        case METHODID_CREATE_ACCOUNT:
+          serviceImpl.createAccount((io.upinmcSE.grpc.gen.CreateAccountRequest) request,
+              (io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateAccountResponse>) responseObserver);
+          break;
+        case METHODID_CREATE_SESSION:
+          serviceImpl.createSession((io.upinmcSE.grpc.gen.CreateSessionRequest) request,
+              (io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.CreateSessionResponse>) responseObserver);
+          break;
+        case METHODID_VERIFY_SESSION:
+          serviceImpl.verifySession((io.upinmcSE.grpc.gen.VerifySessionRequest) request,
+              (io.grpc.stub.StreamObserver<io.upinmcSE.grpc.gen.VerifySessionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -265,12 +411,26 @@ public final class AuthGrpcServiceGrpc {
   public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
     return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
         .addMethod(
-          getPingMethod(),
+          getCreateAccountMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              io.upinmcSE.grpc.gen.PingRequest,
-              io.upinmcSE.grpc.gen.PingResponse>(
-                service, METHODID_PING)))
+              io.upinmcSE.grpc.gen.CreateAccountRequest,
+              io.upinmcSE.grpc.gen.CreateAccountResponse>(
+                service, METHODID_CREATE_ACCOUNT)))
+        .addMethod(
+          getCreateSessionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              io.upinmcSE.grpc.gen.CreateSessionRequest,
+              io.upinmcSE.grpc.gen.CreateSessionResponse>(
+                service, METHODID_CREATE_SESSION)))
+        .addMethod(
+          getVerifySessionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              io.upinmcSE.grpc.gen.VerifySessionRequest,
+              io.upinmcSE.grpc.gen.VerifySessionResponse>(
+                service, METHODID_VERIFY_SESSION)))
         .build();
   }
 
@@ -319,7 +479,9 @@ public final class AuthGrpcServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AuthGrpcServiceFileDescriptorSupplier())
-              .addMethod(getPingMethod())
+              .addMethod(getCreateAccountMethod())
+              .addMethod(getCreateSessionMethod())
+              .addMethod(getVerifySessionMethod())
               .build();
         }
       }

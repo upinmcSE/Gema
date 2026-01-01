@@ -6,19 +6,19 @@
 package io.upinmcSE.grpc.gen;
 
 @com.google.protobuf.Generated
-public interface PingResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PingResponse)
+public interface VerifySessionRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:VerifySessionRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string response = 1;</code>
-   * @return The response.
+   * <code>string token = 1;</code>
+   * @return The token.
    */
-  java.lang.String getResponse();
+  java.lang.String getToken();
   /**
-   * <code>string response = 1;</code>
-   * @return The bytes for response.
+   * <code>string token = 1;</code>
+   * @return The bytes for token.
    */
   com.google.protobuf.ByteString
-      getResponseBytes();
+      getTokenBytes();
 }

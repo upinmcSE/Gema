@@ -27,15 +27,40 @@ public final class AuthProto extends com.google.protobuf.GeneratedFile {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PingRequest_descriptor;
+    internal_static_Account_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_PingRequest_fieldAccessorTable;
+      internal_static_Account_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PingResponse_descriptor;
+    internal_static_CreateAccountRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_PingResponse_fieldAccessorTable;
+      internal_static_CreateAccountRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateAccountResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CreateAccountResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateSessionRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CreateSessionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateSessionResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CreateSessionResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VerifySessionRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VerifySessionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VerifySessionResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VerifySessionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -45,28 +70,70 @@ public final class AuthProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nauth.proto\"\033\n\013PingRequest\022\014\n\004name\030\001 \001(" +
-      "\t\" \n\014PingResponse\022\020\n\010response\030\001 \001(\t26\n\017A" +
-      "uthGrpcService\022#\n\004Ping\022\014.PingRequest\032\r.P" +
-      "ingResponseB#\n\024io.upinmcSE.grpc.genB\tAut" +
-      "hProtoP\001b\006proto3"
+      "\n\nauth.proto\"+\n\007Account\022\n\n\002id\030\001 \001(\004\022\024\n\014a" +
+      "ccount_name\030\002 \001(\t\">\n\024CreateAccountReques" +
+      "t\022\024\n\014account_name\030\001 \001(\t\022\020\n\010password\030\002 \001(" +
+      "\t\"+\n\025CreateAccountResponse\022\022\n\naccount_id" +
+      "\030\001 \001(\004\">\n\024CreateSessionRequest\022\024\n\014accoun" +
+      "t_name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"A\n\025Create" +
+      "SessionResponse\022\r\n\005token\030\001 \001(\t\022\031\n\007accoun" +
+      "t\030\002 \001(\0132\010.Account\"%\n\024VerifySessionReques" +
+      "t\022\r\n\005token\030\001 \001(\t\"+\n\025VerifySessionRespons" +
+      "e\022\022\n\naccount_id\030\001 \001(\0042\327\001\n\017AuthGrpcServic" +
+      "e\022@\n\rCreateAccount\022\025.CreateAccountReques" +
+      "t\032\026.CreateAccountResponse\"\000\022@\n\rCreateSes" +
+      "sion\022\025.CreateSessionRequest\032\026.CreateSess" +
+      "ionResponse\"\000\022@\n\rVerifySession\022\025.VerifyS" +
+      "essionRequest\032\026.VerifySessionResponse\"\000B" +
+      "#\n\024io.upinmcSE.grpc.genB\tAuthProtoP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_PingRequest_descriptor =
+    internal_static_Account_descriptor =
       getDescriptor().getMessageType(0);
-    internal_static_PingRequest_fieldAccessorTable = new
+    internal_static_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_PingRequest_descriptor,
-        new java.lang.String[] { "Name", });
-    internal_static_PingResponse_descriptor =
+        internal_static_Account_descriptor,
+        new java.lang.String[] { "Id", "AccountName", });
+    internal_static_CreateAccountRequest_descriptor =
       getDescriptor().getMessageType(1);
-    internal_static_PingResponse_fieldAccessorTable = new
+    internal_static_CreateAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_PingResponse_descriptor,
-        new java.lang.String[] { "Response", });
+        internal_static_CreateAccountRequest_descriptor,
+        new java.lang.String[] { "AccountName", "Password", });
+    internal_static_CreateAccountResponse_descriptor =
+      getDescriptor().getMessageType(2);
+    internal_static_CreateAccountResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CreateAccountResponse_descriptor,
+        new java.lang.String[] { "AccountId", });
+    internal_static_CreateSessionRequest_descriptor =
+      getDescriptor().getMessageType(3);
+    internal_static_CreateSessionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CreateSessionRequest_descriptor,
+        new java.lang.String[] { "AccountName", "Password", });
+    internal_static_CreateSessionResponse_descriptor =
+      getDescriptor().getMessageType(4);
+    internal_static_CreateSessionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CreateSessionResponse_descriptor,
+        new java.lang.String[] { "Token", "Account", });
+    internal_static_VerifySessionRequest_descriptor =
+      getDescriptor().getMessageType(5);
+    internal_static_VerifySessionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VerifySessionRequest_descriptor,
+        new java.lang.String[] { "Token", });
+    internal_static_VerifySessionResponse_descriptor =
+      getDescriptor().getMessageType(6);
+    internal_static_VerifySessionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VerifySessionResponse_descriptor,
+        new java.lang.String[] { "AccountId", });
     descriptor.resolveAllFeaturesImmutable();
   }
 
