@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002
+      author: thanhD
+
+      preConditions:
+        - columnExists:
+            tableName: tb_account
+            columnName: id
+
+      changes:
+        - addAutoIncrement:
+            tableName: tb_account
+            columnName: id
+            columnDataType: bigint

@@ -16,7 +16,7 @@ import lombok.*;
 public class AccountPassword extends BaseEntity {
     @Id
     @Column(name = "of_account_id")
-    private int ofAccountId;
+    private Long ofAccountId;
 
     private String password;
 }

@@ -16,7 +16,7 @@ import java.util.Date;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
-    @Column(name = "create_at")
+    @Column(name = "created_at")
     @CreatedDate
     private Date createdAt;
 

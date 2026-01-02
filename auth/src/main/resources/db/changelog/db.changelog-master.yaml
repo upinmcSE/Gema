@@ -1,3 +1,9 @@
 databaseChangeLog:
   - include:
       file: db/changelog/001-create-tables.yaml
+  - include:
+      file: db/changelog/002-fix-account-id.yaml
+  - include:
+      file: db/changelog/003-modify-tb-account-pwd-of-account-id.yaml
+  - include:
+      file: db/changelog/004-modify-tb-account-id.yaml

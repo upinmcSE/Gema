@@ -29,8 +29,6 @@ public class AuthServiceImpl extends AuthGrpcServiceGrpc.AuthGrpcServiceImplBase
     @Override
     @Transactional
     public void createAccount(CreateAccountRequest request, StreamObserver<CreateAccountResponse> responseObserver) {
-        if(true) throw new AccountExistException("Account already exist");
-
         // check account name
         boolean existAccount = accountRepository.existsAccountByAccountName(request.getAccountName());
         if(existAccount) throw new AccountExistException("Account already exist");

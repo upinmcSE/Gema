@@ -13,7 +13,7 @@ import lombok.*;
 public class Account extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "account_name")
     private String accountName;

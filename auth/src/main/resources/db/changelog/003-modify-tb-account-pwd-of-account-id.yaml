@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003
+      author: thanhD
+
+      preConditions:
+        - columnExists:
+            tableName: tb_account_pwd
+            columnName: of_account_id
+
+      changes:
+        - modifyDataType:
+            tableName: tb_account_pwd
+            columnName: of_account_id
+            newDataType: bigint
