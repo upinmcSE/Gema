@@ -11,8 +11,8 @@ public interface VerifySessionResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint64 account_id = 1;</code>
-   * @return The accountId.
+   * <code>bool is_valid = 1;</code>
+   * @return The isValid.
    */
-  long getAccountId();
+  boolean getIsValid();
 }

@@ -43,15 +43,15 @@ private static final long serialVersionUID = 0L;
             io.upinmcSE.grpc.gen.VerifySessionResponse.class, io.upinmcSE.grpc.gen.VerifySessionResponse.Builder.class);
   }
 
-  public static final int ACCOUNT_ID_FIELD_NUMBER = 1;
-  private long accountId_ = 0L;
+  public static final int IS_VALID_FIELD_NUMBER = 1;
+  private boolean isValid_ = false;
   /**
-   * <code>uint64 account_id = 1;</code>
-   * @return The accountId.
+   * <code>bool is_valid = 1;</code>
+   * @return The isValid.
    */
   @java.lang.Override
-  public long getAccountId() {
-    return accountId_;
+  public boolean getIsValid() {
+    return isValid_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -68,8 +68,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (accountId_ != 0L) {
-      output.writeUInt64(1, accountId_);
+    if (isValid_ != false) {
+      output.writeBool(1, isValid_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -80,9 +80,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (accountId_ != 0L) {
+    if (isValid_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, accountId_);
+        .computeBoolSize(1, isValid_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -99,8 +99,8 @@ private static final long serialVersionUID = 0L;
     }
     io.upinmcSE.grpc.gen.VerifySessionResponse other = (io.upinmcSE.grpc.gen.VerifySessionResponse) obj;
 
-    if (getAccountId()
-        != other.getAccountId()) return false;
+    if (getIsValid()
+        != other.getIsValid()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -112,9 +112,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getAccountId());
+    hash = (37 * hash) + IS_VALID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsValid());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -246,7 +246,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      accountId_ = 0L;
+      isValid_ = false;
       return this;
     }
 
@@ -281,7 +281,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(io.upinmcSE.grpc.gen.VerifySessionResponse result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.accountId_ = accountId_;
+        result.isValid_ = isValid_;
       }
     }
 
@@ -297,8 +297,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.upinmcSE.grpc.gen.VerifySessionResponse other) {
       if (other == io.upinmcSE.grpc.gen.VerifySessionResponse.getDefaultInstance()) return this;
-      if (other.getAccountId() != 0L) {
-        setAccountId(other.getAccountId());
+      if (other.getIsValid() != false) {
+        setIsValid(other.getIsValid());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -327,7 +327,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 8: {
-              accountId_ = input.readUInt64();
+              isValid_ = input.readBool();
               bitField0_ |= 0x00000001;
               break;
             } // case 8
@@ -348,34 +348,34 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long accountId_ ;
+    private boolean isValid_ ;
     /**
-     * <code>uint64 account_id = 1;</code>
-     * @return The accountId.
+     * <code>bool is_valid = 1;</code>
+     * @return The isValid.
      */
     @java.lang.Override
-    public long getAccountId() {
-      return accountId_;
+    public boolean getIsValid() {
+      return isValid_;
     }
     /**
-     * <code>uint64 account_id = 1;</code>
-     * @param value The accountId to set.
+     * <code>bool is_valid = 1;</code>
+     * @param value The isValid to set.
      * @return This builder for chaining.
      */
-    public Builder setAccountId(long value) {
+    public Builder setIsValid(boolean value) {
 
-      accountId_ = value;
+      isValid_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 account_id = 1;</code>
+     * <code>bool is_valid = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearAccountId() {
+    public Builder clearIsValid() {
       bitField0_ = (bitField0_ & ~0x00000001);
-      accountId_ = 0L;
+      isValid_ = false;
       onChanged();
       return this;
     }

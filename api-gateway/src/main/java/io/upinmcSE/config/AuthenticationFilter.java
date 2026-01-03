@@ -29,7 +29,9 @@ public class AuthenticationFilter implements WebFilter, Ordered {
     }
 
     private final String[] publicEndpoints = {
-            "/auth/.*",
+//            "/auth/account",
+//            "/auth/session",
+            "/auth/.*"
     };
 
     @Override

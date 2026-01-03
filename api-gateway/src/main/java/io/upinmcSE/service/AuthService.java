@@ -1,11 +1,11 @@
 package io.upinmcSE.service;
 
 import io.upinmcSE.dto.request.AccountRequest;
+import io.upinmcSE.dto.request.VerifySessionReq;
 import io.upinmcSE.dto.response.CreateAccountResponse;
 import io.upinmcSE.dto.response.CreateSessionResponse;
-import io.upinmcSE.grpc.gen.AuthGrpcServiceGrpc;
-import io.upinmcSE.grpc.gen.CreateAccountRequest;
-import io.upinmcSE.grpc.gen.CreateSessionRequest;
+import io.upinmcSE.dto.response.VerifySessionRes;
+import io.upinmcSE.grpc.gen.*;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +38,17 @@ public class AuthService {
         return CreateSessionResponse.builder()
                 .token(response.getToken())
                 .accountName(response.getAccount().getAccountName())
+                .build();
+    }
+
+    public VerifySessionRes verifySession(VerifySessionReq req){
+        VerifySessionRequest request = VerifySessionRequest.newBuilder()
+                .setToken(req.getToken())
+                .build();
+        VerifySessionResponse response = authGrpcServiceBlockingStub.verifySession(request);
+
+        return VerifySessionRes.builder()
+                .isValid(response.getIsValid())
                 .build();
     }
 }

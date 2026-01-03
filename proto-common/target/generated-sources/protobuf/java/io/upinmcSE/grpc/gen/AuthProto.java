@@ -78,15 +78,15 @@ public final class AuthProto extends com.google.protobuf.GeneratedFile {
       "t_name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"A\n\025Create" +
       "SessionResponse\022\r\n\005token\030\001 \001(\t\022\031\n\007accoun" +
       "t\030\002 \001(\0132\010.Account\"%\n\024VerifySessionReques" +
-      "t\022\r\n\005token\030\001 \001(\t\"+\n\025VerifySessionRespons" +
-      "e\022\022\n\naccount_id\030\001 \001(\0042\327\001\n\017AuthGrpcServic" +
-      "e\022@\n\rCreateAccount\022\025.CreateAccountReques" +
-      "t\032\026.CreateAccountResponse\"\000\022@\n\rCreateSes" +
-      "sion\022\025.CreateSessionRequest\032\026.CreateSess" +
-      "ionResponse\"\000\022@\n\rVerifySession\022\025.VerifyS" +
-      "essionRequest\032\026.VerifySessionResponse\"\000B" +
-      "#\n\024io.upinmcSE.grpc.genB\tAuthProtoP\001b\006pr" +
-      "oto3"
+      "t\022\r\n\005token\030\001 \001(\t\")\n\025VerifySessionRespons" +
+      "e\022\020\n\010is_valid\030\001 \001(\0102\327\001\n\017AuthGrpcService\022" +
+      "@\n\rCreateAccount\022\025.CreateAccountRequest\032" +
+      "\026.CreateAccountResponse\"\000\022@\n\rCreateSessi" +
+      "on\022\025.CreateSessionRequest\032\026.CreateSessio" +
+      "nResponse\"\000\022@\n\rVerifySession\022\025.VerifySes" +
+      "sionRequest\032\026.VerifySessionResponse\"\000B#\n" +
+      "\024io.upinmcSE.grpc.genB\tAuthProtoP\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -133,7 +133,7 @@ public final class AuthProto extends com.google.protobuf.GeneratedFile {
     internal_static_VerifySessionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_VerifySessionResponse_descriptor,
-        new java.lang.String[] { "AccountId", });
+        new java.lang.String[] { "IsValid", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

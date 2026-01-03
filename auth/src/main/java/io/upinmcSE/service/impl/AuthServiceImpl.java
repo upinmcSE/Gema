@@ -1,5 +1,6 @@
 package io.upinmcSE.service.impl;
 
+import com.nimbusds.jose.JOSEException;
 import io.grpc.stub.StreamObserver;
 import io.upinmcSE.entity.Account;
 import io.upinmcSE.entity.AccountPassword;
@@ -15,6 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -101,7 +103,18 @@ public class AuthServiceImpl extends AuthGrpcServiceGrpc.AuthGrpcServiceImplBase
 
     @Override
     public void verifySession(VerifySessionRequest request, StreamObserver<VerifySessionResponse> responseObserver) {
-        super.verifySession(request, responseObserver);
+        boolean isValid;
+
+        try {
+            isValid = jwtService.isJwtValid(request.getToken(), false);
+        } catch (JOSEException | ParseException e) {
+            throw new RuntimeException(e); // TODO handle
+        }
+
+        responseObserver.onNext(VerifySessionResponse.newBuilder()
+                        .setIsValid(isValid)
+                .build());
+        responseObserver.onCompleted();
     }
 
     private long calculateExpirationInMillis(Date expiration) {

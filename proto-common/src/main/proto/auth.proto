@@ -40,5 +40,5 @@ message VerifySessionRequest {
 }
 
 message VerifySessionResponse {
-  uint64 account_id = 1;
+  bool is_valid = 1;
 }
