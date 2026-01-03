@@ -1,4 +1,4 @@
-package io.upinmcSE.service;
+package io.upinmcSE.service.impl;
 
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
@@ -6,6 +6,7 @@ import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import io.upinmcSE.entity.Account;
+import io.upinmcSE.service.JwtService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service
-public class JwtServiceImpl implements JwtService{
+public class JwtServiceImpl implements JwtService {
 
     @Value("${jwt.secretKey}")
     private String SIGNER_KEY;
@@ -29,7 +30,7 @@ public class JwtServiceImpl implements JwtService{
 
     @Override
     public String generateJwt(Account account, boolean isRefresh) {
-        JWSHeader header = new JWSHeader(JWSAlgorithm.ES512);
+        JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
         long expiryTimeInSeconds = isRefresh ? REFRESH_EXPIRY_SECONDS : ACCESS_EXPIRY_SECONDS;
 
@@ -86,6 +87,20 @@ public class JwtServiceImpl implements JwtService{
             return signedJWT.getJWTClaimsSet().getSubject();
         }
         return "";
+    }
+
+    @Override
+    public Date extractExpiration(String token) {
+        SignedJWT signedJWT = null;
+        try {
+            signedJWT = SignedJWT.parse(token);
+            JWTClaimsSet claimsSet = signedJWT.getJWTClaimsSet();
+
+            // TODO check null
+            return claimsSet.getExpirationTime();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String buildScope(Account account){

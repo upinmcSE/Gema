@@ -36,7 +36,7 @@ public class AuthController {
     public ApiResponse<CreateSessionResponse> createSession(@RequestBody AccountRequest request){
         return ApiResponse.<CreateSessionResponse>builder()
                 .message("Create session success")
-                .data(null)
+                .data(authService.createSession(request))
                 .build();
     }
 
