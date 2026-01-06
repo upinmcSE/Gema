@@ -35,7 +35,7 @@ public class JwtServiceImpl implements JwtService {
         long expiryTimeInSeconds = isRefresh ? REFRESH_EXPIRY_SECONDS : ACCESS_EXPIRY_SECONDS;
 
         JWTClaimsSet.Builder claimsBuilder = new JWTClaimsSet.Builder()
-                .subject(account.getAccountName())
+                .subject(account.getId().toString())
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(expiryTimeInSeconds, ChronoUnit.SECONDS).toEpochMilli()))
                 .jwtID(UUID.randomUUID().toString());
