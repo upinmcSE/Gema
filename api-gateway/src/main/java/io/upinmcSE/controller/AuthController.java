@@ -5,6 +5,7 @@ import io.upinmcSE.dto.request.AccountRequest;
 import io.upinmcSE.dto.request.VerifySessionReq;
 import io.upinmcSE.dto.response.CreateAccountResponse;
 import io.upinmcSE.dto.response.CreateSessionResponse;
+import io.upinmcSE.dto.response.GetAccountRes;
 import io.upinmcSE.dto.response.VerifySessionRes;
 import io.upinmcSE.service.AuthService;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,13 @@ public class AuthController {
         return ApiResponse.<VerifySessionRes>builder()
                 .message("TODO")
                 .data(authService.verifySession(request))
+                .build();
+    }
+
+    @GetMapping("/account/{accountId}")
+    public ApiResponse<GetAccountRes> getAccount(@PathVariable long accountId){
+        return ApiResponse.<GetAccountRes>builder()
+                .data(null)
                 .build();
     }
 

@@ -117,6 +117,21 @@ public class AuthServiceImpl extends AuthGrpcServiceGrpc.AuthGrpcServiceImplBase
         responseObserver.onCompleted();
     }
 
+    @Override
+    public void getAccountById(GetAccountRequest request, StreamObserver<GetAccountResponse> responseObserver) {
+
+        Account account = accountRepository.findById(request.getId())
+                .orElseThrow(() -> new AccountNotFoundException("Not found account"));
+
+        responseObserver.onNext(GetAccountResponse.newBuilder()
+                        .setAccount(io.upinmcSE.grpc.gen.Account.newBuilder()
+                                .setId(account.getId())
+                                .setAccountName(account.getAccountName())
+                        .build())
+                .build());
+        responseObserver.onCompleted();
+    }
+
     private long calculateExpirationInMillis(Date expiration) {
         long currentTimeMillis = System.currentTimeMillis();
         long expirationTimeMillis = expiration.getTime();
