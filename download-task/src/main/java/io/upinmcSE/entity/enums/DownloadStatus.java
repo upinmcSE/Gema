@@ -1,0 +1,9 @@
+package io.upinmcSE.entity.enums;
+
+public enum DownloadStatus {
+    DOWNLOAD_STATUS_UNSPECIFIED,
+    DOWNLOAD_STATUS_PENDING,
+    DOWNLOAD_STATUS_DOWNLOADING,
+    DOWNLOAD_STATUS_FAILED,
+    DOWNLOAD_STATUS_SUCCESS
+}

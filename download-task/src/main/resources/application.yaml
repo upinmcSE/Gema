@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: download-task-service
+
+
+grpc:
+  server:
+    port: 8082
