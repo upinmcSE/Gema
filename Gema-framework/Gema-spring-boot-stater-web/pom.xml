@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.upinmcSE</groupId>
     <artifactId>gema-spring-boot-stater-web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>gema-spring-boot-stater-web</name>
     <description>gema-spring-boot-stater-web</description>
     <url/>
@@ -57,6 +57,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <scope>provided</scope> <!-- provided: GlobalExceptionHandler -->
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>annotationProcessor</scope>
         </dependency>
     </dependencies>
 
