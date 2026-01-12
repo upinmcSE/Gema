@@ -3,6 +3,7 @@ package io.upinmcSE.pojo;
 import io.upinmcSE.exception.ErrorCode;
 import io.upinmcSE.exception.ServiceException;
 import io.upinmcSE.exception.enums.GlobalErrorCodeConstants;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;

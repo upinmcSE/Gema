@@ -1,19 +1,34 @@
 package io.upinmcse.security.config;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import io.upinmcse.security.core.handler.GemaAccessDeniedHandler;
 import io.upinmcse.security.core.handler.GemaAuthenticationEntryPoint;
 import io.upinmcse.security.core.handler.GemaJwtDecoder;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.util.pattern.PathPattern;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @AutoConfiguration
 @AutoConfigureOrder(-1)
@@ -41,7 +56,7 @@ public class GemaWebSecurityConfigurerAdapter {
                             .authenticationEntryPoint(gemaAuthenticationEntryPoint);
                 });
 
-        // TODO: allow endpoint
+        // @PermitAll URL
         http.authorizeHttpRequests(authorizeHttpRequests ->
                 authorizeHttpRequests.anyRequest().authenticated());
 
@@ -57,5 +72,70 @@ public class GemaWebSecurityConfigurerAdapter {
         JwtAuthenticationConverter  jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
         return jwtAuthenticationConverter;
+    }
+
+    private Multimap<HttpMethod, String> getPermitAllUrlsFromAnnotations(){
+        Multimap<HttpMethod, String> result = HashMultimap.create();
+
+        // Scan Request Mapping -> HandlerMethod
+        RequestMappingHandlerMapping requestMappingHandlerMapping =
+                (RequestMappingHandlerMapping) applicationContext.getBean("requestMappingHandlerMapping");
+
+        Map<RequestMappingInfo, HandlerMethod> handlerMethodMap = requestMappingHandlerMapping.getHandlerMethods();
+
+        // Scan @PermitAll
+        for (Map.Entry<RequestMappingInfo, HandlerMethod> entry : handlerMethodMap.entrySet()) {
+            HandlerMethod handlerMethod = entry.getValue();
+            if (!handlerMethod.hasMethodAnnotation(PermitAll.class)
+                    && !handlerMethod.getBeanType().isAnnotationPresent(PermitAll.class)
+            ) {
+                continue;
+            }
+            Set<String> urls = new HashSet<>();
+            if (entry.getKey().getPatternsCondition() != null) {
+                urls.addAll(entry.getKey().getPatternsCondition().getPatterns());
+            }
+            if (entry.getKey().getPathPatternsCondition() != null) {
+                urls.addAll(CollectionUtils.convertList(entry.getKey().getPathPatternsCondition().getPatterns(), PathPattern::getPatternString));
+            }
+            if (urls.isEmpty()) {
+                continue;
+            }
+
+            // @RequestMapping
+            Set<RequestMethod> methods = entry.getKey().getMethodsCondition().getMethods();
+            if (Collection.isEmpty(methods)) {
+                result.putAll(HttpMethod.GET, urls);
+                result.putAll(HttpMethod.POST, urls);
+                result.putAll(HttpMethod.PUT, urls);
+                result.putAll(HttpMethod.DELETE, urls);
+                result.putAll(HttpMethod.HEAD, urls);
+                result.putAll(HttpMethod.PATCH, urls);
+                continue;
+            }
+            entry.getKey().getMethodsCondition().getMethods().forEach(requestMethod -> {
+                switch (requestMethod) {
+                    case GET:
+                        result.putAll(HttpMethod.GET, urls);
+                        break;
+                    case POST:
+                        result.putAll(HttpMethod.POST, urls);
+                        break;
+                    case PUT:
+                        result.putAll(HttpMethod.PUT, urls);
+                        break;
+                    case DELETE:
+                        result.putAll(HttpMethod.DELETE, urls);
+                        break;
+                    case HEAD:
+                        result.putAll(HttpMethod.HEAD, urls);
+                        break;
+                    case PATCH:
+                        result.putAll(HttpMethod.PATCH, urls);
+                        break;
+                }
+            });
+        }
+        return result;
     }
 }

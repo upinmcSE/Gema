@@ -1,5 +1,6 @@
 package io.upinmcse.security.core.handler;
 
+import io.upinmcSE.pojo.CommonResult;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,6 +9,8 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 import java.io.IOException;
+import io.upinmcSE.util.ServletUtils;
+import static io.upinmcSE.exception.enums.GlobalErrorCodeConstants.FORBIDDEN;
 
 @Slf4j
 public class GemaAccessDeniedHandler implements AccessDeniedHandler {
@@ -17,6 +20,7 @@ public class GemaAccessDeniedHandler implements AccessDeniedHandler {
             HttpServletResponse response,
             AccessDeniedException accessDeniedException
     ) throws IOException, ServletException {
-
+        log.warn("hè hè");
+        ServletUtils.writeJson(response, CommonResult.error(FORBIDDEN));
     }
 }
