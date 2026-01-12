@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.upinmcSE</groupId>
     <artifactId>gema-spring-boot-starter-security</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>gema-spring-boot-starter-security</name>
     <description>gema-spring-boot-starter-security</description>
     <url/>
