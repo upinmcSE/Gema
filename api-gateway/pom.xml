@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.7</version>
+        <version>4.0.1</version>
         <relativePath/>
     </parent>
     <groupId>io.upinmcSE</groupId>
@@ -32,8 +32,13 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>io.upinmcSE</groupId>
+            <artifactId>gema-spring-boot-stater-web</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway-mvc</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>4.3.3</version>
         </dependency>
         <dependency>
@@ -41,10 +46,6 @@
             <artifactId>lombok</artifactId>
             <scope>annotationProcessor</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-web</artifactId>-->
-<!--        </dependency>-->
     </dependencies>
 
 </project>

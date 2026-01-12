@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.upinmcSE</groupId>
-    <artifactId>download-task</artifactId>
+    <artifactId>profile</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>download-task</name>
-    <description>download-task</description>
+    <name>profile</name>
+    <description>profile</description>
     <url/>
     <licenses>
         <license/>
@@ -36,17 +36,8 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -56,15 +47,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-kafka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

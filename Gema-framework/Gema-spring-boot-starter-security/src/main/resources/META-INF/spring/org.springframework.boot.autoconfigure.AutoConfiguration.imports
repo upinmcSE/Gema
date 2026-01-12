@@ -1,0 +1,2 @@
+io.upinmcse.security.config.GemaSecurityAutoConfiguration
+io.upinmcse.security.config.GemaWebSecurityConfigurerAdapter
