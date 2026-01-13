@@ -1,6 +1,10 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: auth-service
+
 
   datasource:
     url: jdbc:postgresql://localhost:5432/gema
@@ -21,11 +25,6 @@ spring:
     redis:
       host: localhost
       port: 6379
-
-grpc:
-  server:
-    port: 8081
-
 
 jwt:
   secretKey: 1e3267dcb544e3daf9b48ff7ade909e1863f41d0c44e41f98e6bf1da91cb8006

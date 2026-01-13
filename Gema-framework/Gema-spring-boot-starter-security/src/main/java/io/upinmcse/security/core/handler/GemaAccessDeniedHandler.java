@@ -20,7 +20,6 @@ public class GemaAccessDeniedHandler implements AccessDeniedHandler {
             HttpServletResponse response,
             AccessDeniedException accessDeniedException
     ) throws IOException, ServletException {
-        log.warn("hè hè");
         ServletUtils.writeJson(response, CommonResult.error(FORBIDDEN));
     }
 }

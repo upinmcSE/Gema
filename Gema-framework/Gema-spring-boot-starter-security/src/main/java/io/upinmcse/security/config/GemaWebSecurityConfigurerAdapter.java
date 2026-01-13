@@ -2,6 +2,7 @@ package io.upinmcse.security.config;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.upinmcSE.util.collection.CollectionUtils;
 import io.upinmcse.security.core.handler.GemaAccessDeniedHandler;
 import io.upinmcse.security.core.handler.GemaAuthenticationEntryPoint;
 import io.upinmcse.security.core.handler.GemaJwtDecoder;
@@ -18,14 +19,12 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.util.pattern.PathPattern;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -57,8 +56,17 @@ public class GemaWebSecurityConfigurerAdapter {
                 });
 
         // @PermitAll URL
+        Multimap<HttpMethod, String> permitAllUrls = getPermitAllUrlsFromAnnotations();
         http.authorizeHttpRequests(authorizeHttpRequests ->
-                authorizeHttpRequests.anyRequest().authenticated());
+                authorizeHttpRequests
+                        .requestMatchers(HttpMethod.GET, "/*.html", "/*.css", "/*.js").permitAll()
+                        .requestMatchers(HttpMethod.GET, permitAllUrls.get(HttpMethod.GET).toArray(new String[0])).permitAll()
+                        .requestMatchers(HttpMethod.POST, permitAllUrls.get(HttpMethod.POST).toArray(new String[0])).permitAll()
+                        .requestMatchers(HttpMethod.PUT, permitAllUrls.get(HttpMethod.PUT).toArray(new String[0])).permitAll()
+                        .requestMatchers(HttpMethod.DELETE, permitAllUrls.get(HttpMethod.DELETE).toArray(new String[0])).permitAll()
+                        .requestMatchers(HttpMethod.HEAD, permitAllUrls.get(HttpMethod.HEAD).toArray(new String[0])).permitAll()
+                        .requestMatchers(HttpMethod.PATCH, permitAllUrls.get(HttpMethod.PATCH).toArray(new String[0])).permitAll()
+                        .anyRequest().authenticated());
 
         http.csrf(AbstractHttpConfigurer::disable);
         return http.build();
@@ -92,8 +100,8 @@ public class GemaWebSecurityConfigurerAdapter {
                 continue;
             }
             Set<String> urls = new HashSet<>();
-            if (entry.getKey().getPatternsCondition() != null) {
-                urls.addAll(entry.getKey().getPatternsCondition().getPatterns());
+            if (entry.getKey().getPathPatternsCondition()!= null) {
+                urls.addAll(entry.getKey().getPathPatternsCondition().getDirectPaths().stream().toList());
             }
             if (entry.getKey().getPathPatternsCondition() != null) {
                 urls.addAll(CollectionUtils.convertList(entry.getKey().getPathPatternsCondition().getPatterns(), PathPattern::getPatternString));
@@ -104,7 +112,7 @@ public class GemaWebSecurityConfigurerAdapter {
 
             // @RequestMapping
             Set<RequestMethod> methods = entry.getKey().getMethodsCondition().getMethods();
-            if (Collection.isEmpty(methods)) {
+            if (methods.isEmpty()) {
                 result.putAll(HttpMethod.GET, urls);
                 result.putAll(HttpMethod.POST, urls);
                 result.putAll(HttpMethod.PUT, urls);

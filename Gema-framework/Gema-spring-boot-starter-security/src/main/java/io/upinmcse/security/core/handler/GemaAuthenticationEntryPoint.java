@@ -21,7 +21,6 @@ public class GemaAuthenticationEntryPoint implements AuthenticationEntryPoint {
             HttpServletResponse response,
             AuthenticationException authException
     ) throws IOException, ServletException {
-        log.warn("hí hí");
         ServletUtils.writeJson(response, CommonResult.error(UNAUTHORIZED));
     }
 }
