@@ -34,6 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/verify")
+    @PermitAll
     public CommonResult<VerifySessionRes> verifySession(@RequestBody @Valid VerifySessionReq request){
         return CommonResult.success(authService.verifySession(request));
     }

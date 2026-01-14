@@ -1,7 +1,7 @@
 package io.upinmcSE.filter.security;
 
 import io.micrometer.common.util.StringUtils;
-import io.upinmcSE.VerifySessionReq;
+import io.upinmcSE.repository.dto.VerifySessionReq;
 import io.upinmcSE.exception.enums.GlobalErrorCodeConstants;
 import io.upinmcSE.pojo.CommonResult;
 import io.upinmcSE.repository.IdentityClient;

@@ -1,7 +1,7 @@
 package io.upinmcSE.repository;
 
-import io.upinmcSE.VerifySessionReq;
-import io.upinmcSE.VerifySessionRes;
+import io.upinmcSE.repository.dto.VerifySessionReq;
+import io.upinmcSE.repository.dto.VerifySessionRes;
 import io.upinmcSE.pojo.CommonResult;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
